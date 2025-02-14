@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buon San Valentino, Martina!</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    .scene {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+    }
+    .character {
+      width: 80px;
+      height: 80px;
+      font-size: 40px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: transform 2s ease-in-out;
+    }
+    .boy { left: 10%; }
+    .girl { right: 10%; }
+    .kiss {
+      font-size: 48px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+    .message {
+      opacity: 0;
+      font-size: 36px;
+      font-weight: bold;
+      transition: opacity 1s ease-in;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+      background-color: red;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: darkred;
+    }
+  </style>
+</head>
+<body>
+  <div class="scene">
+    <div id="boy" class="character boy">👨</div>
+    <div id="girl" class="character girl">👩</div>
+    <div id="kiss" class="kiss">💋</div>
+  </div>
+  <div id="message" class="message">💖 Buon San Valentino Martina 💖</div>
+  <button onclick="startAnimation()">Fai Incontrare</button>
+
+  <script>
+    function startAnimation() {
+      const boy = document.getElementById('boy');
+      const girl = document.getElementById('girl');
+      const kiss = document.getElementById('kiss');
+      const message = document.getElementById('message');
+
+      boy.style.transform = 'translateX(390px) translateY(-50%)';
+      girl.style.transform = 'translateX(-390px) translateY(-50%)';
+
+      setTimeout(() => {
+        kiss.style.opacity = '1';
+      }, 2100);
+
+      setTimeout(() => {
+        kiss.style.opacity = '0';
+        message.style.opacity = '1';
+      }, 3100);
+    }
+  </script>
+</body>
+</html>
